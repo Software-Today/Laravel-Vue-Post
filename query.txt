@@ -1,0 +1,58 @@
+============================ @@ WhereHas @@===========================
+// https://www.itsolutionstuff.com/post/laravel-eloquent-wherehas-condition-exampleexample.html
+
+    //     $category = Post::with('category')
+    //                     ->whereHas('category', function (Builder $query){
+    //                         $query->where('category_name', 'like', '%'.request('keyword').'%');
+    //                     })
+    //                     ->limit(10)
+    //                     ->get();
+
+
+    //    return $category;
+
+=======================================================
+
+======================================@@ Where @@ =======================
+// public function apply(Builder $builder, Model $model)
+    // {
+    //     $builder->orderBy('id', 'asc');
+
+
+    //     if (request()->has('search')) {
+    //         $builder->where(function($q) {
+    //             return $q->where('category_name', 'LIKE', '%'. request('search') .'%')
+    //                 ->orWhere('status', 'LIKE', '%'. request('search') .'%');
+    //         });
+    //     }
+
+    //     // ->whereHas('posts', function($q) [
+    //     //     $q->
+    //     // ])
+
+    //     if (request()->has('status')) {
+    //         $builder->where('status', request('status'));
+    //     }
+    // }
+=============================================================
+
+=============================================@@ when @@=======================================
+
+ public function apply(Builder $builder, Model $model)
+    {
+
+        $builder->orderBy('id', 'desc');
+
+        $builder->when(request()->has('keyword'), function ($q) {
+            $q->where(function ($q2) {
+                return $q2->where('title', 'LIKE', '%' . request('keyword') . '%')
+                    ->orWhere('tag', 'LIKE', '%' . request('keyword') . '%');
+            });
+        });
+
+        // $builder->whereHas('category', function ($query){
+        //     return $query->where('category_name', 'like', '%'.request('keyword').'%');
+        // });
+
+    }
+==============================================================

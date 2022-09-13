@@ -1,0 +1,7 @@
+import "../../public/assets/modules/bootstrap/css/bootstrap.min.css"
+import "../../public/assets/modules/fontawesome/css/all.min.css"
+// import "../../public/assets/modules/summernote/summernote-bs4.css"
+// import "../../public/assets/modules/jquery-selectric/selectric.css"
+// import "../../public/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"
+import "../../public/assets/css/style.css"
+import "../../public/assets/css/components.css"

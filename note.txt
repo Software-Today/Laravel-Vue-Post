@@ -1,0 +1,95 @@
+=========================VirtualHost create ======================
+
+C:\Windows\System32\drivers\etc\hosts : ei file open kore
+
+# localhost name resolution is handled within DNS itself.
+	127.0.0.1       localhost
+	::1             localhost
+	127.0.0.1       vue-app.local
+
+Then:
+
+D:\xampp-8.1.2\apache\conf\extra\httpd-vhosts.conf : ei file open kore
+
+ //eta ekbar setup kora lage
+<VirtualHost *>
+	DocumentRoot "D:/xampp-8.1.2/htdocs"
+	ServerName localhost
+</VirtualHost>
+
+//multiple bar kora jay
+<VirtualHost *>
+    DocumentRoot "D:/xampp-8.1.2/htdocs/exampleApp/public"
+    ServerName vue-app.local
+    ServerAlias *.vue-app.local
+    <Directory "D:/xampp-8.1.2/htdocs/exampleApp/public">
+        Order allow,deny
+		Allow from all
+    </Directory>
+</VirtualHost>
+
+==========================================vue setup in app.js ===========================================
+app.js = component register
+
+import './bootstrap';
+//import { createApp } from 'vue';
+import { createApp } from 'vue/dist/vue.esm-bundler';
+
+const app = createApp({});
+
+import DashboardComponent from './components/DashboardComponent.vue';
+import ViewPostComponent from './components/ViewPostComponent.vue';
+import CreatePostComponent from './components/CreatePostComponent.vue';
+
+app.component('dashboard-component', DashboardComponent);
+app.component('view-post-component', ViewPostComponent);
+app.component('create-post-component', CreatePostComponent);
+
+
+app.mount('#app');
+
+
+source = https://vuejs.org/guide/components/registration.html
+
+
+=====================Important Notes =====================================
+(***): package use korar somoy oboiusly dependency mathay rakhte hobe.package use r somoy dependency avoid korte hobe.
+(****): sob js package install: npmjs.com
+
+1.Sob js link and css link @vite() er maddome load korte hobe.
+2.template r sob css file notun kore app.css.js extension jukto emon ekta file load korte hobe. mane css file load korar jonno o .js extension file lagbe.
+3. template r sob js file load korar jonno notun ekta js(app.init.js) file create kore korte hobe.
+4. notun kore create kora js file gula vite.config.js link up korte hobe input array r bitore ['app.init.js','app.cs.js'].
+5. Jquery.min.js file build korle error dive jodi app.init.js file import kori tahole. eta solve korar jonno
+    1. Rollup plugin package install korte hobe. tarpor vite.config.js file e inject({}) eivabe use korte hobe
+            inject({
+            include: '**/*.js',
+            exclude: 'node_modules/**',
+            $: 'jquery',
+            jQuery: 'jquery',
+            }),
+6. popper.js install korte hobe. then vite.config.js use korte hobe.
+
+   resolve: {
+        alias: {
+            '@': '/resources/js',
+            vue: 'vue/dist/vue.esm-bundler',
+            'popper.js': '@poperjs/core/dist/esm/popper',
+        },
+7. Bootstrap sob somoy popper.js er age load korte hobe.
+
+8. pura project vue shudu ekbar e initialization hobe (app.js) file r bitore.
+    1. common sob component gula app.js register korbo.
+    2. common gula locally register korbo.
+
+
+
+==============================Vue command======================
+
+1. npm run dev => eta normally development e kaj korar jonno ei command use korbo.
+2. npm run build => production r jonno ei command . kono css/js file add kore build korte hoy.
+3. npm run build= ei command diye build kore then cpanel project upload korte hoy
+
+============================vue===================
+1. mixin => mane helper function. sob doroner message thakbe
+2.$emit => ..............
