@@ -18,7 +18,6 @@
                             <option value="25">25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
-                            <option value="500">500</option>
                             <option value="all">All Show</option>
                         </select>
                     </div>
@@ -63,7 +62,7 @@
                                         >
                                     </div>
                                 </th>
-                                <th>SL No</th>
+                                <th>No</th>
                                 <th>Title</th>
                                 <th>Tag</th>
                                 <th>Category</th>
@@ -196,6 +195,7 @@ export default {
     computed: {
 
         getAllPost() {
+            this.$store.state.pageData = this.$store.state.post.posts;
             return this.$store.state.post.posts;
         },
 

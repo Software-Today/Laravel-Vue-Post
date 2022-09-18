@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 
 Route::get('/eloquent',[PostController::class,'eloquent_data_show'])->name('eloquent');
@@ -22,5 +23,6 @@ Route::get('post/onchange-post-list',[PostController::class,'onChangePostList'])
 
 
 Route::get('/category',[PostController::class,'category'])->name('category');
+Route::get('category/category/list',[CategoryController::class,'categoryList'])->name('category.list');
 
 

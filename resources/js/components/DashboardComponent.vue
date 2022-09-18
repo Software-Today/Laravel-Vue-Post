@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                       <label>Select Multiple</label>
-                      <select class="form-control" multiple="" data-height="100%">
+                      <select class="form-control" data-height="100%">
                         <option>Option 1</option>
                         <option>Option 2</option>
                         <option>Option 3</option>
@@ -338,17 +338,17 @@
                     <div class="section-title mt-0">Text</div>
                     <div class="form-group">
                       <label>Readonly</label>
-                      <input type="text" class="form-control" readonly="">
+                      <input type="text" class="form-control">
                     </div>
                     <div class="form-group">
                       <label>Readonly Plain Text</label>
-                      <input type="text" class="form-control-plaintext" readonly="" value="Hello!">
+                      <input type="text" class="form-control-plaintext" value="Hello!">
                     </div>
 
                     <div class="section-title">Select</div>
                     <div class="form-group">
                       <label>Select Disabled</label>
-                      <select class="form-control" disabled="">
+                      <select class="form-control">
                         <option>Option 1</option>
                         <option>Option 2</option>
                         <option>Option 3</option>

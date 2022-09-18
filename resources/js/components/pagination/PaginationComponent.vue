@@ -79,7 +79,6 @@
 <script>
 export default {
     props: ["pageData", "limit", "keyword"],
-
     data() {
         return {};
     },
@@ -103,7 +102,7 @@ export default {
     },
 
     computed: {
-        paginateLoop() {
+        paginateLoop() {            
             let pageData = this.pageData;
             if (pageData.last_page > 11) {
                 if (pageData.last_page - 5 <= pageData.current_page) {
@@ -124,13 +123,14 @@ export default {
         },
 
         totalCountData(){
-            return this.$store.state.post.posts.total;
+            console.log(this.$store.state)
+            return this.$store.state.pageData.total;
         },
         startFrom(){
-            return this.$store.state.post.posts.from;
+            return this.$store.state.pageData.from;
         },
         endTo(){
-            return this.$store.state.post.posts.to;
+            return this.$store.state.pageData.to;
         }
 
     },

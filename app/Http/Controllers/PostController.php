@@ -14,47 +14,29 @@ class PostController extends Controller
 {
     public function eloquent_data_show()
     {
-        //Single value query
         $post = Category::find(3)->posts; //category theke post
         $category = Post::find(3)->category; // post theke category
 
-        //return $post;
-        //return $category;
-
-        //All value query
         $categories = Category::with('posts')->limit(10)->get(); //Has Many
         $posts = Post::with('category')->limit(10)->get(); //belongs to
-        //return $posts;
 
         return view('eloquent', compact('categories', 'posts'));
     }
 
     public function post()
     {
-
-        // $categories = Category::active()
-        // ->get(['id', 'category_name']); //locally scope
-
         $categories = Category::get(['id', 'category_name']); //Globally Scope
-
-        // foreach ($categories as $category) {
-        //     echo $category->id.'====>'.$category->category_name.'<br>';
-        // }
-        // return;
-
         return view('post', compact('categories'));
     }
 
 
     public function getPostList(Request $request)
     {
-
         $post = Post::with('category'); //belongs to
 
         if ($request->limit != '') {
             $post = $post->paginate($request->limit);
         }
-
         return response()->json($post);
     }
 

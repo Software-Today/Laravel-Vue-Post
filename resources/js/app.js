@@ -20,42 +20,30 @@ app.use(store);
 
 //Dashboard
 import DashboardComponent from './components/DashboardComponent.vue';
-app.component('dashboard-component', DashboardComponent);
-
 //Post Component
-import ViewPostComponent from './components/ViewPostComponent.vue';
-import CreatePostComponent from './components/CreatePostComponent.vue';
-
-app.component('view-post-component', ViewPostComponent);
-app.component('create-post-component', CreatePostComponent);
-
-//post component
-
+// import ViewPostComponent from './components/post/ViewPostComponent.vue';
+// import CreatePostComponent from './components/post/CreatePostComponent.vue';
 import ViewPost from './components/post/ViewPost.vue';
-app.component('view-post', ViewPost);
-
 import CreatePost from './components/post/CreatePost.vue';
-app.component('create-post', CreatePost);
-
-
 //Category Component
-import CreateCategoryComponent from './components/category/CreateCategoryComponent.vue';
-app.component('create-category-component', CreateCategoryComponent);
-
-import ViewCategoryComponent from './components/category/ViewCategoryComponent.vue';
-app.component('view-category-component', ViewCategoryComponent);
-
+import CreateCategoryComponent from './components/category/CreateCategory.vue';
+import ViewCategoryComponent from './components/category/ViewCategory.vue';
 //Global register in Pagination
 import PaginationComponent from './components/pagination/PaginationComponent.vue';
-app.component('pagination-component', PaginationComponent);
-
 import PreloaderComponent from './components/pagination/Preloader.vue';
-app.component('preloader-component', PreloaderComponent);
-
 import SpinnerLoader from './components/SpinnerLoader.vue';
-app.component('spinner-loader', SpinnerLoader);
-
 import Loader from './components/Loader.vue';
-app.component('loader-component', Loader);
 
+
+app.component('dashboard-component', DashboardComponent);
+// app.component('view-post-component', ViewPostComponent);
+// app.component('create-post-component', CreatePostComponent);
+app.component('view-post', ViewPost);
+app.component('create-post', CreatePost);
+app.component('create-category-component', CreateCategoryComponent);
+app.component('view-category-component', ViewCategoryComponent);
+app.component('pagination-component', PaginationComponent);
+app.component('preloader-component', PreloaderComponent);
+app.component('spinner-loader', SpinnerLoader);
+app.component('loader-component', Loader);
 app.mount('#app');

@@ -26,7 +26,6 @@ export default {
 
     mutations: {
         getAllPost(state, data) {
-            // console.log(data);
             state.posts = data;
             state.isLoading = false;
         }
@@ -41,9 +40,7 @@ export default {
                 state.isLoading = true;
             }
 
-            await axios
-                .get(base_url + 'post/post/list?page=' + page + '&limit=' + limit + "&keyword=" + keyword)
-                .then((response) => {
+            await axios.get(base_url + 'post/post/list?page=' + page + '&limit=' + limit + "&keyword=" + keyword).then((response) => {
                     commit('getAllPost', response.data.post);
                 })
                 .catch((error) => {
@@ -57,36 +54,22 @@ export default {
 
             state.button_name = "Saving Post...";
 
-            axios
-                .post(base_url + "post/post-create", inputPostData)
-                .then((response) => {
+            axios.post(base_url + "post/post-create", inputPostData).then((response) => {
 
                     if (response.data.status == "success") {
                         console.log(response.data.status);
                         $("#modal-form").modal("hide");
-                        //this.resetForm();
-                        //this.successMessage(response.data);
                         this.button_name = "Create Post";
                     } else {
-                        //this.successMessage(response.data);
                         this.button_name = "Create Post";
                     }
                 })
                 .catch((err) => {
                     console.log(err);
-                    //state.isloading = false;
                     state.button_name = "Create Post";
 
                 });
         }
 
     }
-
-
-
-
-
-
-
-
 }

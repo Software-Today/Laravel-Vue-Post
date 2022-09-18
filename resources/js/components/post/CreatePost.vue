@@ -1,13 +1,6 @@
 <template>
     <!-- Modal -->
-    <div
-        id="modal-form"
-        class="modal fade bd-example-modal-lg"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="myLargeModalLabel"
-        aria-hidden="true"
-    >
+    <div id="post-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <form @submit.prevent="save()" role="form">
                 <div class="modal-content">
