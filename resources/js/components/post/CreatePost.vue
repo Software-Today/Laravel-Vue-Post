@@ -19,20 +19,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="card">
-                            <div
-                                class="col-12"
-                                v-if="validation_error"
-                                v-show="elementVisible"
-                                style="margin-top: 3px"
-                            >
+                            <div class="col-12" v-if="validation_error" v-show="elementVisible" style="margin-top: 3px">
                                 <div class="form-group">
                                     <div>
                                         <ul>
-                                            <li
-                                                class="text-danger"
-                                                v-for="error in validation_error"
-                                                :key="error[0]"
-                                            >
+                                            <li class="text-danger" v-for="error in validation_error" :key="error[0]">
                                                 {{ error[0] }}
                                             </li>
                                         </ul>
